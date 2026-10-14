@@ -1,12 +1,12 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="uz">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f6f1e8">
-    <meta name="description" content="Sizni quvonchli kunimiz — nikoh to‘yimizga taklif qilamiz.">
-    <title>To‘y taklifnomasi</title>
+    <meta name="description" content="Odilbek va Gulasalning 2026-yil 7-noyabrdagi to‘yiga taklif qilamiz.">
+    <title>Odilbek &amp; Gulasal — to‘y taklifnomasi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -149,6 +149,17 @@
             line-height: 1.7;
         }
 
+        .text-animations .text-reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .text-animations .text-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .date-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -181,6 +192,109 @@
             font-size: 24px;
         }
 
+        .celebration {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            padding: 38px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .countdown,
+        .calendar {
+            padding: clamp(22px, 4vw, 36px);
+            background: rgba(255, 255, 255, .48);
+        }
+
+        .countdown {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .rings {
+            width: 58px;
+            height: 42px;
+            margin: 0 auto 18px;
+            color: var(--rose);
+        }
+
+        .countdown h2,
+        .calendar h2 {
+            margin-bottom: 8px;
+            font-size: clamp(25px, 3vw, 34px);
+        }
+
+        .countdown-note {
+            margin: 0 0 22px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .countdown-values {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .countdown-value {
+            padding: 12px 4px;
+            border: 1px solid var(--line);
+        }
+
+        .countdown-value strong,
+        .countdown-value span {
+            display: block;
+        }
+
+        .countdown-value strong {
+            font-family: var(--serif);
+            font-size: clamp(21px, 3vw, 30px);
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-value span {
+            margin-top: 3px;
+            color: var(--muted);
+            font-size: 9px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .calendar h2 {
+            text-align: center;
+        }
+
+        .calendar table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+            table-layout: fixed;
+            text-align: center;
+        }
+
+        .calendar th {
+            padding-bottom: 7px;
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .calendar td {
+            height: 34px;
+            border-radius: 50%;
+            color: var(--ink);
+            font-size: 12px;
+        }
+
+        .calendar .wedding-day {
+            background: var(--rose);
+            color: #fff;
+            font-weight: 700;
+        }
+
         .details {
             display: grid;
             grid-template-columns: .9fr 1.1fr;
@@ -196,6 +310,17 @@
             font-weight: 700;
             letter-spacing: .19em;
             text-transform: uppercase;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         h2 {
@@ -229,6 +354,14 @@
             color: var(--muted);
             font-size: 14px;
             line-height: 1.75;
+        }
+
+        .venue-map {
+            display: block;
+            width: 100%;
+            min-height: 280px;
+            margin: 0 0 18px;
+            border: 0;
         }
 
         .map-link {
@@ -305,6 +438,12 @@
             font-family: var(--serif);
             font-size: 20px;
             font-weight: 500;
+        }
+
+        .contact-link {
+            color: var(--muted);
+            text-decoration-color: var(--rose);
+            text-underline-offset: 3px;
         }
 
         .monogram {
@@ -401,6 +540,16 @@
                 padding: 38px 0 34px;
             }
 
+            .celebration {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 28px 0;
+            }
+
+            .venue-map {
+                min-height: 240px;
+            }
+
             h2 {
                 max-width: 330px;
             }
@@ -422,6 +571,11 @@
                 animation-duration: .01ms !important;
                 scroll-behavior: auto !important;
                 transition-duration: .01ms !important;
+            }
+
+            .text-animations .text-reveal {
+                opacity: 1;
+                transform: none;
             }
 
             .hearts {
@@ -472,7 +626,8 @@
 </head>
 
 <body>
-    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto" muted></audio>
+    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto"
+        muted></audio>
     <button class="music-toggle" id="music-toggle" type="button" aria-label="Musiqani yoqish" title="Musiqani yoqish"
         aria-pressed="false">
         <span aria-hidden="true">&#9835;</span>
@@ -492,7 +647,7 @@
             </div>
             <div class="hero-copy">
                 <p class="eyebrow">Bir umrga atalgan kun</p>
-                <h1 id="couple-names">[Kelin ismi] <span>&amp; [Kuyov ismi]</span></h1>
+                <h1 id="couple-names">Odilbek <span>&amp; Gulasal</span></h1>
                 <p class="hero-note">Hayotimizning eng quvonchli kunida yonimizda bo‘lishingiz biz uchun katta baxt.
                     Sizni nikoh to‘yimizga taklif qilamiz.</p>
             </div>
@@ -501,15 +656,108 @@
         <section class="date-row" aria-label="To‘y vaqti">
             <div class="date-item">
                 <span class="date-label">Hafta kuni</span>
-                <span class="date-value">[Hafta kuni]</span>
+                <span class="date-value">Shanba</span>
             </div>
             <div class="date-item">
                 <span class="date-label">Sana</span>
-                <span class="date-value">[Kun. Oy. Yil]</span>
+                <span class="date-value">07.11.2026</span>
             </div>
             <div class="date-item">
-                <span class="date-label">Boshlanish vaqti</span>
-                <span class="date-value">[Soat:daqiqa]</span>
+                <span class="date-label">Manzil</span>
+                <span class="date-value">Navo</span>
+            </div>
+        </section>
+
+        <section class="celebration" aria-label="To‘y sanasigacha ortga hisob va taqvim">
+            <div class="countdown">
+                <svg class="rings" viewBox="0 0 64 46" fill="none" aria-hidden="true">
+                    <circle cx="25" cy="23" r="16" stroke="currentColor" stroke-width="3" />
+                    <circle cx="39" cy="23" r="16" stroke="currentColor" stroke-width="3" />
+                    <path d="m27 8 4 5 4-5M27 38l4-5 4 5" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <p class="section-kicker">Katta kunimizgacha</p>
+                <h2>To‘yimizga qancha qoldi?</h2>
+                <p class="countdown-note">07-noyabr, 2026 · Shanba</p>
+                <div class="countdown-values" id="countdown" aria-live="off">
+                    <div class="countdown-value"><strong id="countdown-days">0</strong><span>Kun</span></div>
+                    <div class="countdown-value"><strong id="countdown-hours">00</strong><span>Soat</span></div>
+                    <div class="countdown-value"><strong id="countdown-minutes">00</strong><span>Daqiqa</span></div>
+                    <div class="countdown-value"><strong id="countdown-seconds">00</strong><span>Soniya</span></div>
+                </div>
+            </div>
+            <div class="calendar">
+                <p class="section-kicker">Sanani belgilab qo‘ying</p>
+                <h2>Noyabr 2026</h2>
+                <table>
+                    <caption class="visually-hidden">2026-yil noyabr oyi taqvimi. To‘y kuni 7-noyabr.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Du</th>
+                            <th scope="col">Se</th>
+                            <th scope="col">Chor</th>
+                            <th scope="col">Pay</th>
+                            <th scope="col">Ju</th>
+                            <th scope="col">Sha</th>
+                            <th scope="col">Ya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td class="wedding-day" aria-label="To‘y kuni, 7-noyabr">7</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
@@ -522,29 +770,98 @@
             </div>
             <div class="venue">
                 <p class="section-kicker">Manzil</p>
-                <p class="venue-name">[To‘yxona nomi]</p>
-                <p class="venue-address">[Shahar yoki tuman]<br>[Ko‘cha, uy raqami yoki mo‘ljal]</p>
-                <a class="map-link" href="https://maps.google.com/?q=To%27yxona+nomi,+shahar,+manzil" target="_blank"
-                    rel="noreferrer">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor"
-                            stroke-width="1.6" />
-                        <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6" />
-                    </svg>
-                    Xaritada ko‘rish
-                </a>
+                <p class="venue-name">To‘yxona nomi</p>
+                <p class="venue-address">Farg‘ona vil., Furqat tumani, Navo to‘yxonasi<br>Mo‘ljal: Furqat tumani
+                    hokimiyati</p>
+                <iframe class="venue-map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2318.5334071721322!2d70.79001212742449!3d40.48501127488961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ba9320e28fc531%3A0xea9b7c0a153d2537!2sNavo!5e0!3m2!1sru!2s!4v1791970105505!5m2!1sru!2s"
+                    title="Navo to‘yxonasining xaritadagi joylashuvi" loading="lazy" allowfullscreen
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
             </div>
         </section>
 
         <footer class="closing">
-            <p><strong>Hurmat bilan, [Kelin-kuyov oilalari]</strong>Ishtirokingizni oldindan ma’lum qilishingiz uchun:
-                [Telefon raqami]</p>
+            <p><strong>Hurmat bilan, Odilbek</strong>Bizning quvonchimizga sherik bo‘ling.
+                <a class="contact-link" href="tel:+998903650534">+998 90 365 05 34</a>
+            </p>
             <span class="monogram" aria-hidden="true">&amp;</span>
         </footer>
     </main>
     <script>
         const weddingAudio = document.querySelector("#wedding-audio");
         const musicToggle = document.querySelector("#music-toggle");
+        const weddingDate = new Date(2026, 10, 7);
+        const countdownParts = {
+            days: document.querySelector("#countdown-days"),
+            hours: document.querySelector("#countdown-hours"),
+            minutes: document.querySelector("#countdown-minutes"),
+            seconds: document.querySelector("#countdown-seconds"),
+        };
+
+        function updateCountdown() {
+            const remainingMilliseconds = weddingDate.getTime() - Date.now();
+            if (remainingMilliseconds <= 0) {
+                document.querySelector("#countdown").hidden = true;
+                document.querySelector(".countdown-note").textContent = "To‘y kuni muborak!";
+                return;
+            }
+
+            const remainingSeconds = Math.floor(remainingMilliseconds / 1000);
+            countdownParts.days.textContent = String(Math.floor(remainingSeconds / 86400));
+            countdownParts.hours.textContent = String(Math.floor((remainingSeconds % 86400) / 3600)).padStart(2, "0");
+            countdownParts.minutes.textContent = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, "0");
+            countdownParts.seconds.textContent = String(remainingSeconds % 60).padStart(2, "0");
+        }
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+
+        const textAnimationTargets = document.querySelectorAll([
+            ".topline span:not(.topline-mark)",
+            ".hero-copy > *",
+            ".date-item",
+            ".countdown > .section-kicker",
+            ".countdown > h2",
+            ".countdown > .countdown-note",
+            ".countdown-value",
+            ".calendar > .section-kicker",
+            ".calendar > h2",
+            ".calendar th",
+            ".calendar td",
+            ".details .section-kicker",
+            ".details h2",
+            ".details .body-copy",
+            ".venue-name",
+            ".venue-address",
+            ".closing p",
+            ".monogram",
+        ].join(", "));
+
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.documentElement.classList.add("text-animations");
+
+            if ("IntersectionObserver" in window) {
+                const textObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: .15 });
+
+                textAnimationTargets.forEach((element, index) => {
+                    if (element.textContent.trim()) {
+                        element.classList.add("text-reveal");
+                        element.style.transitionDelay = `${(index % 4) * 80}ms`;
+                        textObserver.observe(element);
+                    }
+                });
+            } else {
+                textAnimationTargets.forEach((element) => element.classList.add("is-visible"));
+            }
+        }
 
         function updateMusicButton() {
             const isPlaying = !weddingAudio.paused;
