@@ -472,10 +472,10 @@
 </head>
 
 <body>
-    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto"></audio>
+    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto" muted></audio>
     <button class="music-toggle" id="music-toggle" type="button" aria-label="Musiqani yoqish" title="Musiqani yoqish"
         aria-pressed="false">
-        <span aria-hidden="true">♫</span>
+        <span aria-hidden="true">&#9835;</span>
     </button>
     <main class="page">
         <header class="topline">
@@ -486,9 +486,9 @@
 
         <section class="hero" aria-labelledby="couple-names">
             <div class="hearts" aria-hidden="true">
-                <span style="--heart-left: 18%; --heart-delay: 0s;">♥</span>
-                <span style="--heart-left: 52%; --heart-delay: 2s;">♥</span>
-                <span style="--heart-left: 82%; --heart-delay: 4s;">♥</span>
+                <span style="--heart-left: 18%; --heart-delay: 0s;">&#9829;</span>
+                <span style="--heart-left: 52%; --heart-delay: 2s;">&#9829;</span>
+                <span style="--heart-left: 82%; --heart-delay: 4s;">&#9829;</span>
             </div>
             <div class="hero-copy">
                 <p class="eyebrow">Bir umrga atalgan kun</p>
@@ -548,18 +548,29 @@
 
         function updateMusicButton() {
             const isPlaying = !weddingAudio.paused;
-            const label = isPlaying ? "Musiqani to‘xtatish" : "Musiqani yoqish";
+            const label = isPlaying ? "Musiqani to'xtatish" : "Musiqani yoqish";
             musicToggle.setAttribute("aria-pressed", String(isPlaying));
             musicToggle.setAttribute("aria-label", label);
             musicToggle.title = label;
         }
 
-        weddingAudio.addEventListener("play", updateMusicButton);
+        weddingAudio.muted = true;
+        weddingAudio.addEventListener("play", () => {
+            weddingAudio.muted = false;
+            updateMusicButton();
+        });
         weddingAudio.addEventListener("pause", updateMusicButton);
-        weddingAudio.play().catch(updateMusicButton);
+
+        window.addEventListener("load", () => {
+            weddingAudio.play().catch(() => {
+                weddingAudio.muted = false;
+                updateMusicButton();
+            });
+        }, { once: true });
 
         musicToggle.addEventListener("click", async () => {
             if (weddingAudio.paused) {
+                weddingAudio.muted = false;
                 try {
                     await weddingAudio.play();
                 } catch {
