@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f1e8">
+    <meta name="description" content="Sizni quvonchli kunimiz — nikoh to‘yimizga taklif qilamiz.">
+    <title>To‘y taklifnomasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --paper: #f6f1e8;
+            --ink: #263a32;
+            --muted: #69746b;
+            --leaf: #64745c;
+            --rose: #a95750;
+            --line: rgba(38, 58, 50, .2);
+            --serif: "Playfair Display", Georgia, serif;
+            --sans: "DM Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            width: min(100% - 40px, 1080px);
+            margin: 0 auto;
+            padding: 24px 0 48px;
+        }
+
+        .topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 42px;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .topline-mark {
+            color: var(--rose);
+            font-family: var(--serif);
+            font-size: 21px;
+        }
+
+        .hero {
+            position: relative;
+            display: grid;
+            min-height: 570px;
+            margin-top: 14px;
+            overflow: hidden;
+            align-items: end;
+            background: #788071;
+            isolation: isolate;
+        }
+
+        .hero::before {
+            position: absolute;
+            z-index: -2;
+            inset: 0;
+            background: url("https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=2000&q=85") center 46% / cover;
+            content: "";
+        }
+
+        .hero::after {
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(19, 31, 27, .04) 15%, rgba(19, 31, 27, .13) 45%, rgba(19, 31, 27, .77) 100%);
+            content: "";
+        }
+
+        .hearts {
+            position: absolute;
+            z-index: 0;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hearts span {
+            position: absolute;
+            bottom: 16%;
+            left: var(--heart-left);
+            color: #f4b4ae;
+            font-size: 22px;
+            opacity: 0;
+            animation: heart-float 6s ease-in var(--heart-delay) infinite;
+            will-change: transform, opacity;
+        }
+
+        .hero-copy {
+            max-width: 780px;
+            padding: 58px clamp(28px, 7vw, 84px) 52px;
+            color: #fffdf8;
+            animation: arrive .8s ease-out both;
+        }
+
+        .eyebrow {
+            margin: 0 0 18px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .23em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 750px;
+            margin-bottom: 16px;
+            font-family: var(--serif);
+            font-size: clamp(48px, 8vw, 88px);
+            font-weight: 500;
+            line-height: 1.02;
+        }
+
+        h1 span {
+            display: block;
+            color: #f2d7c6;
+            font-style: italic;
+        }
+
+        .hero-note {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .date-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 28px 0 30px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .date-item {
+            padding: 0 24px;
+            border-left: 1px solid var(--line);
+        }
+
+        .date-item:first-child {
+            padding-left: 0;
+            border-left: 0;
+        }
+
+        .date-label {
+            display: block;
+            margin-bottom: 9px;
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .date-value {
+            font-family: var(--serif);
+            font-size: 24px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: clamp(34px, 8vw, 105px);
+            padding: 54px 0 48px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-kicker {
+            margin-bottom: 13px;
+            color: var(--rose);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-bottom: 17px;
+            font-family: var(--serif);
+            font-size: clamp(30px, 4vw, 43px);
+            font-weight: 500;
+            line-height: 1.14;
+        }
+
+        .body-copy {
+            max-width: 390px;
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .venue {
+            padding-top: 3px;
+        }
+
+        .venue-name {
+            margin-bottom: 8px;
+            font-family: var(--serif);
+            font-size: 28px;
+        }
+
+        .venue-address {
+            margin: 0 0 22px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .map-link {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            gap: 10px;
+            padding: 0 17px;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .map-link:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .map-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .music-toggle {
+            position: fixed;
+            z-index: 6;
+            right: 20px;
+            bottom: 20px;
+            display: grid;
+            width: 48px;
+            aspect-ratio: 1;
+            place-items: center;
+            border: 1px solid var(--ink);
+            border-radius: 50%;
+            background: var(--paper);
+            color: var(--rose);
+            box-shadow: 0 4px 16px rgba(38, 58, 50, .16);
+            cursor: pointer;
+            font-size: 23px;
+            line-height: 1;
+        }
+
+        .music-toggle:focus-visible {
+            outline: 2px solid var(--rose);
+            outline-offset: 3px;
+        }
+
+        .music-toggle[aria-pressed="true"] span {
+            animation: note-dance .8s ease-in-out infinite alternate;
+        }
+
+        .closing {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: center;
+            padding: 37px 0 0;
+        }
+
+        .closing p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .closing strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .monogram {
+            color: var(--rose);
+            font-family: var(--serif);
+            font-size: 37px;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        @keyframes arrive {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heart-float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(.7);
+            }
+
+            20% {
+                opacity: .8;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-180px) scale(1.15);
+            }
+        }
+
+        @keyframes note-dance {
+            to {
+                transform: translateY(-3px) rotate(8deg);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 28px, 1080px);
+                padding-top: 14px;
+            }
+
+            .topline {
+                font-size: 9px;
+                letter-spacing: .12em;
+            }
+
+            .hero {
+                min-height: 540px;
+                margin-top: 10px;
+            }
+
+            .hero::before {
+                background-position: 53% center;
+            }
+
+            .hero-copy {
+                padding: 38px 23px 32px;
+            }
+
+            .hero-note {
+                max-width: 290px;
+                font-size: 13px;
+            }
+
+            .date-row {
+                padding: 22px 0;
+            }
+
+            .date-item {
+                padding: 0 12px;
+            }
+
+            .date-label {
+                font-size: 8px;
+                letter-spacing: .12em;
+            }
+
+            .date-value {
+                font-size: 18px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 38px 0 34px;
+            }
+
+            h2 {
+                max-width: 330px;
+            }
+
+            .closing {
+                padding-top: 27px;
+            }
+
+            .monogram {
+                font-size: 30px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+
+            .hearts {
+                display: none;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .date-row {
+                grid-template-columns: 1fr;
+                gap: 13px;
+            }
+
+            .date-item {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                padding: 0;
+                border: 0;
+            }
+
+            .date-label {
+                margin: 0;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                width: 100%;
+                padding: 0;
+            }
+
+            .hero {
+                min-height: 480px;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .map-link {
+                border-color: var(--ink);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto"></audio>
+    <button class="music-toggle" id="music-toggle" type="button" aria-label="Musiqani yoqish" title="Musiqani yoqish"
+        aria-pressed="false">
+        <span aria-hidden="true">♫</span>
+    </button>
+    <main class="page">
+        <header class="topline">
+            <span>Oila qurish oqshomi</span>
+            <span class="topline-mark" aria-hidden="true">&amp;</span>
+            <span>Taklifnoma</span>
+        </header>
+
+        <section class="hero" aria-labelledby="couple-names">
+            <div class="hearts" aria-hidden="true">
+                <span style="--heart-left: 18%; --heart-delay: 0s;">♥</span>
+                <span style="--heart-left: 52%; --heart-delay: 2s;">♥</span>
+                <span style="--heart-left: 82%; --heart-delay: 4s;">♥</span>
+            </div>
+            <div class="hero-copy">
+                <p class="eyebrow">Bir umrga atalgan kun</p>
+                <h1 id="couple-names">[Kelin ismi] <span>&amp; [Kuyov ismi]</span></h1>
+                <p class="hero-note">Hayotimizning eng quvonchli kunida yonimizda bo‘lishingiz biz uchun katta baxt.
+                    Sizni nikoh to‘yimizga taklif qilamiz.</p>
+            </div>
+        </section>
+
+        <section class="date-row" aria-label="To‘y vaqti">
+            <div class="date-item">
+                <span class="date-label">Hafta kuni</span>
+                <span class="date-value">[Hafta kuni]</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Sana</span>
+                <span class="date-value">[Kun. Oy. Yil]</span>
+            </div>
+            <div class="date-item">
+                <span class="date-label">Boshlanish vaqti</span>
+                <span class="date-value">[Soat:daqiqa]</span>
+            </div>
+        </section>
+
+        <section class="details" aria-label="To‘y tafsilotlari">
+            <div>
+                <p class="section-kicker">Sizni kutamiz</p>
+                <h2>Quvonchimizga sherik bo‘ling</h2>
+                <p class="body-copy">Ushbu unutilmas oqshomni azizlarimiz bilan birga nishonlamoqchimiz. Tashrifingiz
+                    biz uchun eng qadrli sovg‘a bo‘ladi.</p>
+            </div>
+            <div class="venue">
+                <p class="section-kicker">Manzil</p>
+                <p class="venue-name">[To‘yxona nomi]</p>
+                <p class="venue-address">[Shahar yoki tuman]<br>[Ko‘cha, uy raqami yoki mo‘ljal]</p>
+                <a class="map-link" href="https://maps.google.com/?q=To%27yxona+nomi,+shahar,+manzil" target="_blank"
+                    rel="noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor"
+                            stroke-width="1.6" />
+                        <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6" />
+                    </svg>
+                    Xaritada ko‘rish
+                </a>
+            </div>
+        </section>
+
+        <footer class="closing">
+            <p><strong>Hurmat bilan, [Kelin-kuyov oilalari]</strong>Ishtirokingizni oldindan ma’lum qilishingiz uchun:
+                [Telefon raqami]</p>
+            <span class="monogram" aria-hidden="true">&amp;</span>
+        </footer>
+    </main>
+    <script>
+        const weddingAudio = document.querySelector("#wedding-audio");
+        const musicToggle = document.querySelector("#music-toggle");
+
+        function updateMusicButton() {
+            const isPlaying = !weddingAudio.paused;
+            const label = isPlaying ? "Musiqani to‘xtatish" : "Musiqani yoqish";
+            musicToggle.setAttribute("aria-pressed", String(isPlaying));
+            musicToggle.setAttribute("aria-label", label);
+            musicToggle.title = label;
+        }
+
+        weddingAudio.addEventListener("play", updateMusicButton);
+        weddingAudio.addEventListener("pause", updateMusicButton);
+        weddingAudio.play().catch(updateMusicButton);
+
+        musicToggle.addEventListener("click", async () => {
+            if (weddingAudio.paused) {
+                try {
+                    await weddingAudio.play();
+                } catch {
+                    updateMusicButton();
+                }
+            } else {
+                weddingAudio.pause();
+            }
+        });
+    </script>
+</body>
+
+</html>
