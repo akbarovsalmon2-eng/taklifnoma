@@ -76,7 +76,7 @@
             position: absolute;
             z-index: -2;
             inset: 0;
-            background: url("one.png") center 18% / cover;
+            background: url("two.png") center 18% / cover;
             content: "";
         }
 
@@ -626,8 +626,7 @@
 </head>
 
 <body>
-    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto"
-        muted></audio>
+    <audio id="wedding-audio" src="audio/Izzat%20Shukurov%20-%20Oshiqman.mp3" autoplay loop preload="auto"></audio>
     <button class="music-toggle" id="music-toggle" type="button" aria-label="Musiqani yoqish" title="Musiqani yoqish"
         aria-pressed="false">
         <span aria-hidden="true">&#9835;</span>
@@ -664,7 +663,7 @@
             </div>
             <div class="date-item">
                 <span class="date-label">Manzil</span>
-                <span class="date-value">Navo</span>
+                <span class="date-value">Farg‘ona viloyati, Furqat tumani, Navo to‘yxonasi</span>
             </div>
         </section>
 
@@ -770,8 +769,8 @@
             </div>
             <div class="venue">
                 <p class="section-kicker">Manzil</p>
-                <p class="venue-name">To‘yxona nomi</p>
-                <p class="venue-address">Farg‘ona vil., Furqat tumani, Navo to‘yxonasi<br>Mo‘ljal: Furqat tumani
+                <p class="venue-name">Navo to‘yxonasi</p>
+                <p class="venue-address">Farg‘ona viloyati, Furqat tumani<br>Mo‘ljal: Furqat tumani
                     hokimiyati</p>
                 <iframe class="venue-map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2318.5334071721322!2d70.79001212742449!3d40.48501127488961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ba9320e28fc531%3A0xea9b7c0a153d2537!2sNavo!5e0!3m2!1sru!2s!4v1791970105505!5m2!1sru!2s"
@@ -782,7 +781,7 @@
         </section>
 
         <footer class="closing">
-            <p><strong>Hurmat bilan, Odilbek</strong>Bizning quvonchimizga sherik bo‘ling.
+            <p><strong>Hurmat bilan, Odilbek va Gulasal</strong>Bizning quvonchimizga sherik bo‘ling.
                 <a class="contact-link" href="tel:+998903650534">+998 90 365 05 34</a>
             </p>
             <span class="monogram" aria-hidden="true">&amp;</span>
@@ -871,17 +870,13 @@
             musicToggle.title = label;
         }
 
-        weddingAudio.muted = true;
-        weddingAudio.addEventListener("play", () => {
-            weddingAudio.muted = false;
-            updateMusicButton();
-        });
+        weddingAudio.addEventListener("play", updateMusicButton);
         weddingAudio.addEventListener("pause", updateMusicButton);
 
         window.addEventListener("load", () => {
-            weddingAudio.play().catch(() => {
-                weddingAudio.muted = false;
+            weddingAudio.play().catch((error) => {
                 updateMusicButton();
+                console.warn("Musiqa avtomatik ijro etilmadi; uni musiqa tugmasi orqali yoqing.", error);
             });
         }, { once: true });
 
